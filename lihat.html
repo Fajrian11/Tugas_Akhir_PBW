@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Daftar Dokter</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar bg-neutral text-neutral-content">
+      <div class="flex-1">
+        <a class="btn btn-ghost normal-case text-xl font-bold">Klinik FN</a>
+      </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal p-0">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./lihat.html">Dokter</a></li>
+          <li><a href="./form.html">Tambah Dokter</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  <div id="app">
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Spesialisasi</th>
+            <th>Hapus</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hover" v-for="(item, index) in mahasiswa.list" :key="index">
+            <th>{{ item.id }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.nim }}</td>
+            <td>
+              <button class="btn btn-circle btn-error" @click="deleteMahasiswa(item.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-square btn-primary" @click="getMahasiswaById(item.id)">
+                Edit</i><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card w-96 bg-base-100 shadow-xl" >
+      <div class="card-body items-center text-center">
+          <h1 class="text-5xl mb-5 font-bold">Update Dokter</h1>
+          <form @submit.prevent="mahasiswa.isUpdate ? updateMahasiswa() : submitMahasiswa()" class="flex flex-col gap-y-2">
+              <input
+            v-model="mahasiswa.name"
+            type="text"
+            placeholder="Masukkan nama anda"
+            class="input input-bordered input-error w-full max-w-xs"
+          />
+          <input
+            v-model="mahasiswa.email"
+            type="text"
+            placeholder="Masukkan email anda"
+            class="input input-bordered input-error w-full max-w-xs"
+          />
+          <input
+            v-model="mahasiswa.nim"
+            type="text"
+            placeholder="Masukkan Spesialisasi anda"
+            class="input input-bordered input-error w-full max-w-xs mb-5"
+          />
+          <button
+            class="btn w-64 rounded-full btn-primary"
+          >
+            {{ mahasiswa.isUpdate ? 'Update' : 'Create'}}
+          </button>
+        </form>
+      </div>
+    </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
