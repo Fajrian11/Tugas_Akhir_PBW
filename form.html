@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Daftar Dokter</title>
+    <title>Form Daftar Mahasiswa</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,13 +13,13 @@
   <body>
     <div class="navbar bg-neutral text-neutral-content">
       <div class="flex-1">
-        <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a class="btn btn-ghost normal-case text-xl font-bold">Kampus FN</a>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal p-0">
           <li><a href="./index.html">Home</a></li>
-          <li><a href="./lihat.html">Dokter</a></li>
-          <li><a href="./form.html">Tambah Dokter</a></li>
+          <li><a href="./lihat.html">Mahasiswa</a></li>
+          <li><a href="./form.html">Tambah Mahasiswa</a></li>
         </ul>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="hero-overlay bg-opacity-60"></div>
             <div class="card w-96 bg-base-100 shadow-xl">
                 <div class="card-body items-center text-center">
-                    <h1 class="text-5xl mb-5 font-bold">Isi Dokter</h1>
+                    <h1 class="text-5xl mb-5 font-bold">Isi Mahasiswa</h1>
                     <form @submit.prevent="mahasiswa.isUpdate ? updateMahasiswa() : submitMahasiswa()" class="flex flex-col gap-y-2">
                         <input
                       v-model="mahasiswa.name"
@@ -46,7 +46,7 @@
                     <input
                       v-model="mahasiswa.nim"
                       type="text"
-                      placeholder="Masukkan Spesialisasi anda"
+                      placeholder="Masukkan NIM anda"
                       class="input input-bordered input-error w-full max-w-xs mb-5"
                     />
                     <button
